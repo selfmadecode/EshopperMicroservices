@@ -1,0 +1,32 @@
+CATALOG.API
+
+This microservice is built using MongoDb
+
+Selected properties on Catalog.API, on debug tab, changed profile to Catalog.API
+
+
+Pulled mongo image -> docker pull mongo
+
+docker run -d -p 27017:27017 --name shopping-mongo mongo
+-d => detach mode
+-p => port (forwarding from port 27017 which is the image port number exposed by mongo to 27017 on my local machine
+shopping-mongo => container name
+mongo => image name
+
+docker exec -it shopping-mongo /bin/bash => opens an interactive terminal inside the container
+opens a bash command inside the container
+
+in order to run mongo command in the container, we have to run mongo command first(type mongo then hit enter)
+
+'show dbs' => show database
+
+'use CatalogDb' => create a CatalogDb
+
+db.createCollection('Products') => creates a product collection inside catalog db
+db.Products.insert // db.Products.insertMany() 
+db.Products.insertMany([{ 'Name':'Asus Laptop','Category':'Computers', 'Summary':'Summary', 'Description':'Description', 'ImageFile':'ImageFile', 'Price':54.93 }, { 'Name':'HP Laptop','Category':'Computers', 'Summary':'Summary', 'Description':'Description', 'ImageFile':'ImageFile', 'Price':88.93 } ])
+db.Products.find({}).pretty() => returns all objects
+db.Products.remove({}) => remove all
+
+show databases
+show collections
