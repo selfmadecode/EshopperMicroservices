@@ -1,3 +1,4 @@
+using Catalog.API.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -25,7 +26,7 @@ namespace Catalog.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            ConfigureDIService(services);
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -51,6 +52,12 @@ namespace Catalog.API
             {
                 endpoints.MapControllers();
             });
+        }
+
+        public void ConfigureDIService(IServiceCollection services)
+        {
+            services.Configure<CatalogDbConfig>(Configuration.GetSection("DatabaseSettings"));
+
         }
     }
 }
