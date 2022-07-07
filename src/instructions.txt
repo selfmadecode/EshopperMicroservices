@@ -6,6 +6,14 @@ Selected properties on Catalog.API, on debug tab, changed profile to Catalog.API
 
 
 Pulled mongo image -> docker pull mongo
+docker images => show images
+
+
+docker ps => show running containers
+
+docker ps -a
+
+docker start a14ace....{containerId}
 
 docker run -d -p 27017:27017 --name shopping-mongo mongo
 -d => detach mode
@@ -30,3 +38,11 @@ db.Products.remove({}) => remove all
 
 show databases
 show collections
+
+Connecting CatalogApi to mongo db
+Install-Package MongoDB.Driver
+
+TESTING API
+STEP 1, Make sure docker desktop is running
+right click on the solution and open in terminal
+run the shopping-mongo container (docker start container id) => use docker ps/ ps -a to show images
