@@ -46,3 +46,5 @@ TESTING API
 STEP 1, Make sure docker desktop is running
 right click on the solution and open in terminal
 run the shopping-mongo container (docker start container id) => use docker ps/ ps -a to show images
+
+ADDING MONGO DB TO DOCKER FILE
