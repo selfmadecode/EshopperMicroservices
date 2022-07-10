@@ -63,4 +63,12 @@ CATALOG API Url is exposed on port 8000 -> http://localhost:8000/swagger/index.h
 
 MONGO GUI
 In order to visualize the Monga database, we need to pull and run the mongoclient image from docker
+docker run -d -p 3000:3000 mongoclient/mongoclient
+
+
+BASKET.API
+docker pull redis -> pulling redis official image
+Redis is an open-source, networked, in-memory, key-value data store
+Redis -> REmote DIctionary Server
+
 
