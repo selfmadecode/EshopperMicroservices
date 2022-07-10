@@ -48,3 +48,19 @@ right click on the solution and open in terminal
 run the shopping-mongo container (docker start container id) => use docker ps/ ps -a to show images
 
 ADDING MONGO DB TO DOCKER FILE
+Added catalogdb as an image on docker compose and overide the conncetionstring setting
+Volumes are used to create file storage out the host file system
+
+to run docker compose
+docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
+docker-compose -f docker-compose.yml -f docker-compose.override.yml down -- stop all containers in docker compose
+
+when debuggin with VS
+Right click solution and clean the project -> this removes the running container
+
+CATALOG API Url is exposed on port 8000 -> http://localhost:8000/swagger/index.html
+
+
+MONGO GUI
+In order to visualize the Monga database, we need to pull and run the mongoclient image from docker
+
