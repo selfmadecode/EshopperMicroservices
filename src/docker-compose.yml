@@ -1,8 +1,18 @@
 version: '3.4'
+#catalogdb: image of the image (creating an image for the database to run together with the api)
+#volumes are data storage outside of the container that exist on the host file system
+  #if you remove the mongo image, data records will be stored in the volumes if specified
 
 services:
+  catalogdb:
+    image: mongo
+
+
   catalog.api:
     image: ${DOCKER_REGISTRY-}catalogapi
     build:
       context: .
       dockerfile: Services/Catalog/Catalog.API/Dockerfile
+
+volumes:
+  mongo_data:
