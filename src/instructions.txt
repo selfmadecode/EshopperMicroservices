@@ -58,7 +58,7 @@ docker-compose -f docker-compose.yml -f docker-compose.override.yml down -- stop
 when debuggin with VS
 Right click solution and clean the project -> this removes the running container
 
-CATALOG API Url is exposed on port 8000 -> http://localhost:8000/swagger/index.html
+CATALOG API Url container is exposed on port 8000 -> http://localhost:8000/swagger/index.html
 
 
 MONGO GUI
@@ -71,4 +71,32 @@ docker pull redis -> pulling redis official image
 Redis is an open-source, networked, in-memory, key-value data store
 Redis -> REmote DIctionary Server
 
+To run the container for redis db
+docker run -d -p 6379:6379 --name eshopper-redis redis
 
+To check log
+docker logs -f {containername} - docker logs -f eshopper-redis
+docker exec -it eshopper-redis /bin/bash => open interactive command window
+type redis-cli -> allows you run redis comand inside the container
+
+type ping, response is PONG-> LOL
+
+to create a key value pair
+set key value
+get key
+set name self
+get name
+
+Add redis nuget package on basket.api
+install-Package Microsoft.Extensions.Caching.StackExchangeRedis
+
+Update-Package -ProjectName Basket.API
+BASKET API Url container is exposed on port 8001 -> http://localhost:8001/swagger/index.html
+
+
+PORTAINER is a tool used to manage containers
+Launch localhost:9000 to see the UI
+login details
+admin, admin1234admin1234
+
+if you dont see the containers, logout and login again, select docker as the container environment
