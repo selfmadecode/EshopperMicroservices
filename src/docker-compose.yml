@@ -1,11 +1,19 @@
 version: '3.4'
-#catalogdb: image of the image (creating an image for the database to run together with the api)
+#catalogdb: name of the image (creating an image for the database to run together with the api)
 #volumes are data storage outside of the container that exist on the host file system
   #if you remove the mongo image, data records will be stored in the volumes if specified
+
+# used alpine version for redis
 
 services:
   catalogdb:
     image: mongo
+
+  basketdb:
+    image: redis:alpine
+
+  portainer:
+    image: portainer/portainer-ce
 
   catalog.api:
     image: ${DOCKER_REGISTRY-}catalogapi
@@ -13,5 +21,12 @@ services:
       context: .
       dockerfile: Services/Catalog/Catalog.API/Dockerfile
 
+  basket.api:
+    image: ${DOCKER_REGISTRY-}basketapi
+    build:
+      context: .
+      dockerfile: Services/Basket/Basket.API/Dockerfile
+
 volumes:
   mongo_data:
+  portainer_data:
