@@ -100,3 +100,9 @@ login details
 admin, admin1234admin1234
 
 if you dont see the containers, logout and login again, select docker as the container environment
+
+DISCOUNT API
+will leverage PostgreSQL Database in order to store discount coupons
+PostgreSQL is an open source db
+
+to manage postgree db, we need pgadmin
