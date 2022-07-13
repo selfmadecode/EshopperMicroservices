@@ -106,3 +106,6 @@ will leverage PostgreSQL Database in order to store discount coupons
 PostgreSQL is an open source db
 
 to manage postgree db, we need pgadmin
+
+Install-Package Npgsql
+Install-Package Dapper
