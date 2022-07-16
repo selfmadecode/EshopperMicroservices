@@ -20,7 +20,7 @@ namespace Discount.API.Controllers
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
         }
-        [HttpGet("{productName}", Name = "GetDiscount")]
+        [HttpGet("{productName}", Name = nameof(GetDiscount))]
         [ProducesResponseType(typeof(Coupon), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<Coupon>> GetDiscount(string productName)
         {
