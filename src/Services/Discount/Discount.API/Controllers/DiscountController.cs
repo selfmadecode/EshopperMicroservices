@@ -33,7 +33,7 @@ namespace Discount.API.Controllers
         public async Task<ActionResult<Coupon>> CreateDiscount([FromBody] Coupon coupon)
         {
             await _repository.CreateDiscount(coupon);
-            return CreatedAtRoute("GetDiscount", new { productName = coupon.ProductName }, coupon);
+            return CreatedAtRoute(nameof(GetDiscount), new { productName = coupon.ProductName }, coupon);
         }
 
         [HttpPut]
