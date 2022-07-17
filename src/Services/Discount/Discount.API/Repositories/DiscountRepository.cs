@@ -9,6 +9,12 @@ using System.Threading.Tasks;
 
 namespace Discount.API.Repositories
 {
+    // BUILT WITH POSTGRESQL AND DAPPER
+    // PostgreSQL is a powerful, open-source object-relational database system that is very easy to use
+    // Dapper is a high-performance micro-ORM
+    // PgAdmin is a visual tool for managing Postgres
+    // Npgsql is the open source .NET data provider for PostgreSQL.
+    // It allows you to connect and interact with PostgreSQL server using .NET.
     public class DiscountRepository : IDiscountRepository
     {
         private readonly IConfiguration _configuration;
