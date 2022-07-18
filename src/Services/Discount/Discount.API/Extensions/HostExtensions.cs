@@ -18,6 +18,7 @@ namespace Discount.API.Extensions
 
             using (var scope = host.Services.CreateScope())
             {
+                // Get required services using the host object
                 var services = scope.ServiceProvider;
                 var configuration = services.GetRequiredService<IConfiguration>();
                 var logger = services.GetRequiredService<ILogger<TContext>>();
