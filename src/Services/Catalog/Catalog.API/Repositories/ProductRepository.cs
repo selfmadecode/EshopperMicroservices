@@ -10,6 +10,7 @@ namespace Catalog.API.Repositories
 {
     public class ProductRepository : IProductRepository
     {
+        // Uses mongo db
         private readonly ICatalogContext _context;
 
         public ProductRepository(ICatalogContext context)
