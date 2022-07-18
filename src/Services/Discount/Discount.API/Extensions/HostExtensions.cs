@@ -20,7 +20,9 @@ namespace Discount.API.Extensions
             {
                 // Get required services using the host object
                 var services = scope.ServiceProvider;
+
                 var configuration = services.GetRequiredService<IConfiguration>();
+
                 var logger = services.GetRequiredService<ILogger<TContext>>();
 
                 try
@@ -29,6 +31,7 @@ namespace Discount.API.Extensions
 
                     using var connection = new NpgsqlConnection
                         (configuration.GetValue<string>("DatabaseSettings:ConnectionString"));
+
                     connection.Open();
 
                     using var command = new NpgsqlCommand
