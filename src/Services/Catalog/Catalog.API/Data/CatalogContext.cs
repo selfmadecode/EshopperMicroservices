@@ -20,6 +20,7 @@ namespace Catalog.API.Data
 
             Products = database.GetCollection<Product>(_catalogDbConfig.CollectionName);
 
+            // PRESEED-DATABASE
             CatalogContextSeed.SeedData(Products);
         }
         public IMongoCollection<Product> Products { get; }
