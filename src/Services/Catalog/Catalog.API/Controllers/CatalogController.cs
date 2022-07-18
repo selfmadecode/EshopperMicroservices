@@ -29,6 +29,7 @@ namespace Catalog.API.Controllers
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
             var products = await _repository.GetProducts();
+
             return Ok(products);
         }
 
@@ -38,6 +39,7 @@ namespace Catalog.API.Controllers
         public async Task<ActionResult<Product>> GetProductById(string id)
         {
             var product = await _repository.GetProduct(id);
+
             if (product == null)
             {
                 _logger.LogError($"Product with id: {id}, not found.");
@@ -52,6 +54,7 @@ namespace Catalog.API.Controllers
         public async Task<ActionResult<IEnumerable<Product>>> GetProductByCategory(string category)
         {
             var products = await _repository.GetProductByCategory(category);
+
             return Ok(products);
         }
 
