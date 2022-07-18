@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Basket.API.Repositories
 {
+    // USES REDIS CACHE AS A DISTRIBUTED CACHE DB
     public class BasketRepository : IBasketRepository
     {
         private readonly IDistributedCache _redisCache;
