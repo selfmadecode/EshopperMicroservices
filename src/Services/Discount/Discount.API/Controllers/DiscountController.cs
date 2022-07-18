@@ -25,6 +25,7 @@ namespace Discount.API.Controllers
         public async Task<ActionResult<Coupon>> GetDiscount(string productName)
         {
             var coupon = await _repository.GetDiscount(productName);
+
             return Ok(coupon);
         }
 
@@ -33,6 +34,7 @@ namespace Discount.API.Controllers
         public async Task<ActionResult<Coupon>> CreateDiscount([FromBody] Coupon coupon)
         {
             await _repository.CreateDiscount(coupon);
+
             return CreatedAtRoute(nameof(GetDiscount), new { productName = coupon.ProductName }, coupon);
         }
 
