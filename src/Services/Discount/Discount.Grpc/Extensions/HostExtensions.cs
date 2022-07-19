@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Discount.API.Extensions
+namespace Discount.Grpc.Extensions
 {
     public static class HostExtensions
     {
