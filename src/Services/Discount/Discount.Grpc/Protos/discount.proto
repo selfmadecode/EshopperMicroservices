@@ -24,9 +24,11 @@ message CouponModel {
 message CreateDiscountRequest {
 	CouponModel coupon = 1;
 }
+
 message UpdateDiscountRequest {
 	CouponModel coupon = 1;
 }
+
 message DeleteDiscountRequest {
 	string productName = 1;
 }
