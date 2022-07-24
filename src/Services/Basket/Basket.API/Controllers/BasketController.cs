@@ -40,7 +40,11 @@ namespace Basket.API.Controllers
         {
             // TODO : Communicate with Discount.Grpc
             // To setup the connection, bascket controller has to have the contract/proto file
-            // right click project, click add connected services, select grpc, locate the discount proto file
+            // right click project, click add connected services,
+            // service reference(grpc..)
+            // add service reference
+            // select grpc, locate the discount proto file
+            // type-> Client (Discount is the Server, Basket is the Client
 
             // and Calculate latest prices of product into shopping cart
             // consume Discount Grpc
