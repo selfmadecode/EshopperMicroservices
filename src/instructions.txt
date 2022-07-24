@@ -54,6 +54,7 @@ Volumes are used to create file storage out the host file system
 to run docker compose
 docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
 docker-compose -f docker-compose.yml -f docker-compose.override.yml down -- stop all containers in docker compose
+docker-compose -f docker-compose.yml -f docker-compose.override.yml up --build -> to rebuild all containers incase a change has been made to the containerized application
 
 when debuggin with VS
 Right click solution and clean the project -> this removes the running container
@@ -115,3 +116,5 @@ DISCOUNT API Url container is exposed on port 8002 -> http://localhost:8002/swag
 After creating the protofile, 
 	right click, select properties and set built action to protobuf compiler
 	gRPC stub classes -> server only
+
+

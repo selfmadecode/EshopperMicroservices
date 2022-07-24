@@ -66,6 +66,8 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - "CacheSettings:ConnectionString=basketdb:6379"
+      - "GrpcSettings:DiscountUrl=http://discount.grpc"
+      #overide the connection string used by basket ms to call discount grpc, the connection string now points to the image
     depends_on:
       - basketdb
     ports:
