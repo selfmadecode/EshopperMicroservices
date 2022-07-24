@@ -111,3 +111,7 @@ Install-Package Npgsql
 Install-Package Dapper
 
 DISCOUNT API Url container is exposed on port 8002 -> http://localhost:8002/swagger/index.html
+
+After creating the protofile, 
+	right click, select properties and set built action to protobuf compiler
+	gRPC stub classes -> server only
