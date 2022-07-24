@@ -2,6 +2,9 @@ syntax = "proto3";
 
 option csharp_namespace = "Discount.Grpc.Protos";
 
+// right click, select properties and set built action to protobuf compiler
+// gRPC stub classes -> server only
+
 service DiscountProtoService {
 	rpc GetDiscount (GetDiscountRequest) returns (CouponModel);
 	rpc CreateDiscount (CreateDiscountRequest) returns (CouponModel);
