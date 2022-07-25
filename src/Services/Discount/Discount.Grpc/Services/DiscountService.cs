@@ -32,6 +32,7 @@ namespace Discount.Grpc.Services
 
             if(coupon == null)
             {
+                // Test the result of this
                 throw new RpcException(new Status(StatusCode.NotFound, $"Discount with Product name {request.ProductName} not found."));
             }
             _logger.LogInformation($"Discount retrieved for ProductName: {coupon.ProductName}, Amount: {coupon.Amount}");
