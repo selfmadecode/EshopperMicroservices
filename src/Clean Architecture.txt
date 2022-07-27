@@ -1,0 +1,8 @@
+Domain and Application are core
+Infrastructure and API are peripherals
+
+Dependency moves inward
+Domain has no dependency
+Application is dependent on Domain
+Infrastructure depend on Application
+API depenp on Application and Infrastruture
