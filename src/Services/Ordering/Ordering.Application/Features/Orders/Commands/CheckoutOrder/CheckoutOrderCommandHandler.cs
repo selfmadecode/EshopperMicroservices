@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using Microsoft.Extensions.Logging;
+using Ordering.Application.Contracts.Infrastructure;
 using Ordering.Application.Contracts.Persistence;
 using Ordering.Domain.Entities;
 using System;
@@ -17,12 +18,15 @@ namespace Ordering.Application.Features.Orders.Commands.CheckoutOrder
         private readonly IOrderRepository _repo;
         private readonly IMapper _mapper;
         private readonly ILogger<CheckoutOrderCommandHandler> _logger;
+        private readonly IEmailService _emailService;
 
-        public CheckoutOrderCommandHandler(IOrderRepository repo, IMapper mapper, ILogger<CheckoutOrderCommandHandler> logger)
+        public CheckoutOrderCommandHandler(IOrderRepository repo, IMapper mapper,
+            ILogger<CheckoutOrderCommandHandler> logger, IEmailService emailService)
         {
             _repo = repo ?? throw new ArgumentNullException(nameof(repo));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _emailService = emailService ?? throw new ArgumentNullException(nameof(emailService));
         }
 
         public async Task<Guid> Handle(CheckoutOrderCommand request, CancellationToken cancellationToken)
