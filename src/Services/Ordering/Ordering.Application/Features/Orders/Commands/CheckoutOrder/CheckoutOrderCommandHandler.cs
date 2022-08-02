@@ -15,17 +15,18 @@ namespace Ordering.Application.Features.Orders.Commands.CheckoutOrder
     {
         private readonly IOrderRepository _repo;
         private readonly IMapper _mapper;
+        private readonly ILogger<CheckoutOrderCommandHandler> _logger;
 
-        public CheckoutOrderCommandHandler(IOrderRepository repo, IMapper mapper)
+        public CheckoutOrderCommandHandler(IOrderRepository repo, IMapper mapper, ILogger<CheckoutOrderCommandHandler> logger)
         {
             _repo = repo ?? throw new ArgumentNullException(nameof(repo));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task<Guid> Handle(CheckoutOrderCommand request, CancellationToken cancellationToken)
         {
             var order = _mapper.Map<Order>(request);
-
             var newOrder = await _repo.AddAsync(order);
 
             return newOrder.Id;
