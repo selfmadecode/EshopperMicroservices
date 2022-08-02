@@ -35,6 +35,8 @@ namespace Ordering.Application.Features.Orders.Commands.CheckoutOrder
             var order = _mapper.Map<Order>(request);
             var newOrder = await _repo.AddAsync(order);
 
+            _logger.LogInformation($"Order with id {newOrder.Id} created successfully");
+
             await SendMail(newOrder);
             return newOrder.Id;
         }
