@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <Folder Include="Behaviours\" />
+    <Folder Include="Features\Orders\Commands\UpdateOrder\" />
   </ItemGroup>
 
   <ItemGroup>
