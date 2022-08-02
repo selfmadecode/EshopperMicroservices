@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.Extensions.Logging;
 using Ordering.Application.Contracts.Infrastructure;
 using Ordering.Application.Contracts.Persistence;
+using Ordering.Application.Models;
 using Ordering.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -34,7 +35,28 @@ namespace Ordering.Application.Features.Orders.Commands.CheckoutOrder
             var order = _mapper.Map<Order>(request);
             var newOrder = await _repo.AddAsync(order);
 
+            await SendMail(newOrder);
             return newOrder.Id;
+        }
+
+        private async Task SendMail(Order order)
+        {
+            var email = new Email()
+            {
+                Body = "New Order Created.",
+                Subject = "New Order",
+                To = "kentekz61@gmail.com"
+            };
+
+            try
+            {
+                await _emailService.SendEmail(email);
+            }
+            catch (Exception ex)
+            {
+
+                _logger.LogError($"Order with id {order.Id} failed to send: {ex.Message}");
+            }
         }
     }
 }
