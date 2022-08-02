@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using Ordering.Application.Contracts.Persistence;
+using Ordering.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +22,13 @@ namespace Ordering.Application.Features.Orders.Commands.CheckoutOrder
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-        public Task<Guid> Handle(CheckoutOrderCommand request, CancellationToken cancellationToken)
+        public async Task<Guid> Handle(CheckoutOrderCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var order = _mapper.Map<Order>(request);
+
+            var newOrder = await _repo.AddAsync(order);
+
+            return newOrder.Id;
         }
     }
 }
