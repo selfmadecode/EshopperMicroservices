@@ -14,7 +14,10 @@ namespace Ordering.Application.Features.Orders.Commands.UpdateOrder
             RuleFor(x => x.UserName).NotEmpty()
                 .WithMessage("{UserName} is required").NotNull()
                 .MaximumLength(50).WithMessage("{UserName} must not exceed 50 characters");
-            
+
+            RuleFor(x => x.EmailAddress).NotEmpty()
+                .WithMessage("{EmailAddress} is required").NotNull();
+           
         }
     }
 }
