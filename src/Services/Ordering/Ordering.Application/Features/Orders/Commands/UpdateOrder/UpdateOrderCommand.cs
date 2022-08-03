@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MediatR;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Ordering.Application.Features.Orders.Commands.UpdateOrder
 {
-    public class UpdateOrderCommand
+    public class UpdateOrderCommand : IRequest // not taking a type because we are not returning any data
     {
         public Guid Id { get; set; }
         public string UserName { get; set; }
