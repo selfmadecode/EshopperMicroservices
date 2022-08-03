@@ -17,7 +17,12 @@ namespace Ordering.Application.Features.Orders.Commands.UpdateOrder
 
             RuleFor(x => x.EmailAddress).NotEmpty()
                 .WithMessage("{EmailAddress} is required").NotNull();
-           
+
+            RuleFor(x => x.TotalPrice).NotEmpty()
+               .WithMessage("{TotalPrice} is required")
+               .GreaterThan(0).WithMessage("{TotalPrice} should be greater than 0");
+
+
         }
     }
 }
