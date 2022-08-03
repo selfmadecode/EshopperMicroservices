@@ -8,6 +8,7 @@ namespace Ordering.Application.Features.Orders.Commands.UpdateOrder
 {
     public class UpdateOrderCommand
     {
+        public Guid Id { get; set; }
         public string UserName { get; set; }
         public decimal TotalPrice { get; set; }
 
