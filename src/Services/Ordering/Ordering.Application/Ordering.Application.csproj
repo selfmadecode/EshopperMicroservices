@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <Folder Include="Behaviours\" />
-    <Folder Include="Exception\" />
+    <Folder Include="Exceptions\" />
   </ItemGroup>
 
   <ItemGroup>
