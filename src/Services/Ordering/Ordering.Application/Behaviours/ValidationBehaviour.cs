@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ordering.Application.Behaviours
 {
+    // intercepts the request and runs the validation rules associated with the request
     public class ValidationBehaviour
     {
     }
