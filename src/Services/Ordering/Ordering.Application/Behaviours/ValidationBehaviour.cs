@@ -14,6 +14,7 @@ namespace Ordering.Application.Behaviours
         where TRequest : IRequest<TResponse>
     {
         private readonly IEnumerable<IValidator<TRequest>> _validators;
+        // IValidator interface is implemented by the AbstractValidator classes, so the validation rules can be gotten
 
         public ValidationBehaviour(IEnumerable<IValidator<TRequest>> validators)
         {
