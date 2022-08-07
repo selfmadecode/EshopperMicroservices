@@ -11,7 +11,7 @@ namespace Ordering.Application.Behaviours
 {
     // intercepts the request and runs the validation rules associated with the request
     public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-        where TRequest : IRequest<TResponse>
+        where TRequest : IRequest<TResponse> // MediatR 9.5.3 does not have this
     {
         private readonly IEnumerable<IValidator<TRequest>> _validators;
         // IValidator interface is implemented by the AbstractValidator classes, so the validation rules can be gotten
@@ -21,10 +21,15 @@ namespace Ordering.Application.Behaviours
             _validators = validators ?? throw new ArgumentNullException(nameof(validators));
         }
 
-        public Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken,
+        public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken,
             RequestHandlerDelegate<TResponse> next)
         {
-            throw new NotImplementedException();
+            if (_validators.Any())
+            {
+                var context = new ValidationContext<TRequest>(request);
+
+                var validationFailures = await Task.WhenAll(_validators.Select(v => v.ValidateAsync(context, cancellationToken)));
+            }
         }
     }
 }
