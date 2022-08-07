@@ -14,7 +14,7 @@ namespace Ordering.Application.Behaviours
 
     {
 
-        private readonly ILogger<UnhandledExceptionBehaviour> _logger;
+        private readonly ILogger<TRequest> _logger;
         public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
         {
             try
