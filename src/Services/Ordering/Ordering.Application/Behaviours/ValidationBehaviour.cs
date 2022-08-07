@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using ValidationException = Ordering.Application.Exceptions.ValidationException; // using custom ValidationException
 
 namespace Ordering.Application.Behaviours
 {
@@ -28,8 +29,18 @@ namespace Ordering.Application.Behaviours
             {
                 var context = new ValidationContext<TRequest>(request);
 
+                // runs all rules defined in the AbstractValidator class
                 var validationFailures = await Task.WhenAll(_validators.Select(v => v.ValidateAsync(context, cancellationToken)));
+                var failures = validationFailures.SelectMany(x => x.Errors).Where(e => e != null).ToList();
+
+                if(failures.Count > 0)
+                {
+                    //throw new ValidationException(failures); // Fluent validation exception class
+                    throw new ValidationException(failures);
+                }
             }
+
+            return await next(); // calls the next method in the pipeline
         }
     }
 }
