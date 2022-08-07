@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ordering.Application.Behaviours
 {
-    class ValidationBehaviour
+    public class ValidationBehaviour
     {
     }
 }
