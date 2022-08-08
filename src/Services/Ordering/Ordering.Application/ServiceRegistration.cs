@@ -16,7 +16,7 @@ namespace Ordering.Application
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly()); // Register fluent validators
-            services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddMediatR(Assembly.GetExecutingAssembly()); // Register mediatR
 
             return services;
         }
