@@ -15,7 +15,7 @@ namespace Ordering.Application
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
-            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly()); // Register fluent validators
             services.AddMediatR(Assembly.GetExecutingAssembly());
 
             return services;
