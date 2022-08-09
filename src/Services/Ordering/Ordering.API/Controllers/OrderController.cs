@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,5 +12,6 @@ namespace Ordering.API.Controllers
     [ApiController]
     public class OrderController : ControllerBase
     {
+        private readonly IMediator _mediator;
     }
 }
