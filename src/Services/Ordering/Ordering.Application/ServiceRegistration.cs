@@ -17,6 +17,7 @@ namespace Ordering.Application
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly()); // Register fluent validators
+            // using reflection, fluent will look for classes that inherits from AbstractValidator
             services.AddMediatR(Assembly.GetExecutingAssembly()); // Register mediatR
 
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnhandledExceptionBehaviour<,>));
