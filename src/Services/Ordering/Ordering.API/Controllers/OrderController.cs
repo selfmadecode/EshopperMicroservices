@@ -27,15 +27,16 @@ namespace Ordering.API.Controllers
         public async Task<ActionResult<List<OrdersVm>>> GetOrdersByUserName(string userName)
         {
             var query = new GetOrdersListQuery(userName);
-            var orders = await _mediator.Send(query);
-            return Ok(orders);
+            var result = await _mediator.Send(query);
+            return Ok(result);
         }
 
-        [HttpPost]
-        public async Task<ActionResult<Guid>> Checkout(CheckoutOrderCommand model)
+        [HttpPost(Name = nameof(Checkout))]
+        [ProducesResponseType(typeof(Guid), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<Guid>> Checkout([FromBody] CheckoutOrderCommand model)
         {
-            var data = await _mediator.Send(model);
-            return Ok(data);
+            var result = await _mediator.Send(model);
+            return Ok(result);
         }
     }
 }
