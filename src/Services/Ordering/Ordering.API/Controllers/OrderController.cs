@@ -21,11 +21,13 @@ namespace Ordering.API.Controllers
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
-        [HttpGet]
+        [HttpGet("{userName}", Name = nameof(GetOrdersByUserName))]
         [ProducesResponseType(typeof(IEnumerable<OrdersVm>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<List<OrdersVm>>> GetOrders()
+        public async Task<ActionResult<List<OrdersVm>>> GetOrdersByUserName(string userName)
         {
-            var result =_mediator.h
+            var query = new GetOrdersListQuery(userName);
+            var orders = _mediator.Send(query);
+            return Ok(orders);
         }
     }
 }
