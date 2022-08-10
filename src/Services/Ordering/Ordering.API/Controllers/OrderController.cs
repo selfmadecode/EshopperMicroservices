@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Ordering.Application.Features.Orders.Commands.CheckoutOrder;
+using Ordering.Application.Features.Orders.Commands.UpdateOrder;
 using Ordering.Application.Features.Orders.Queries.GetOrdersList;
 using System;
 using System.Collections.Generic;
@@ -34,6 +35,14 @@ namespace Ordering.API.Controllers
         [HttpPost(Name = nameof(Checkout))]
         [ProducesResponseType(typeof(Guid), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<Guid>> Checkout([FromBody] CheckoutOrderCommand model)
+        {
+            var result = await _mediator.Send(model);
+            return Ok(result);
+        }
+
+        [HttpPut(Name = nameof(Update))]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        public async Task<ActionResult<Guid>> Update([FromBody] UpdateOrderCommand model)
         {
             var result = await _mediator.Send(model);
             return Ok(result);
