@@ -46,9 +46,9 @@ namespace Ordering.API.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult> Update([FromBody] UpdateOrderCommand model)
+        public async Task<ActionResult> Update([FromBody] UpdateOrderCommand command)
         {
-            await _mediator.Send(model);
+            await _mediator.Send(command);
             return NoContent();
         }
 
