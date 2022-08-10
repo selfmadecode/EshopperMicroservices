@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Ordering.Application.Features.Orders.Commands.CheckoutOrder;
+using Ordering.Application.Features.Orders.Commands.DeleteOrder;
 using Ordering.Application.Features.Orders.Commands.UpdateOrder;
 using Ordering.Application.Features.Orders.Queries.GetOrdersList;
 using System;
@@ -32,6 +33,7 @@ namespace Ordering.API.Controllers
             return Ok(result);
         }
 
+        // rabbitMQ
         [HttpPost(Name = nameof(Checkout))]
         [ProducesResponseType(typeof(Guid), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<Guid>> Checkout([FromBody] CheckoutOrderCommand model)
@@ -41,8 +43,17 @@ namespace Ordering.API.Controllers
         }
 
         [HttpPut(Name = nameof(Update))]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult> Update([FromBody] UpdateOrderCommand model)
+        {
+            await _mediator.Send(model);
+            return NoContent();
+        }
+
+        [HttpDelete(Name = nameof(Delete))]
         [ProducesResponseType((int)HttpStatusCode.OK)]
-        public async Task<ActionResult<Guid>> Update([FromBody] UpdateOrderCommand model)
+        public async Task<ActionResult<Guid>> Delete([FromBody] DeleteOrderCommand model)
         {
             var result = await _mediator.Send(model);
             return Ok(result);
