@@ -52,14 +52,18 @@ namespace Ordering.API.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id}",Name = nameof(Delete))]
+        [HttpDelete("{id}", Name = nameof(Delete))]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult<Guid>> Delete([FromBody] DeleteOrderCommand model)
+        public async Task<ActionResult> Delete(Guid id)
         {
-            var result = await _mediator.Send(model);
-            return Ok(result);
+            var command = new DeleteOrderCommand()
+            {
+                Id = id
+            };
+            await _mediator.Send(command);
+            return NoContent();
         }
     }
 }
