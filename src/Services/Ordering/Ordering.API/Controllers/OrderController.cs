@@ -26,7 +26,7 @@ namespace Ordering.API.Controllers
         public async Task<ActionResult<List<OrdersVm>>> GetOrdersByUserName(string userName)
         {
             var query = new GetOrdersListQuery(userName);
-            var orders = _mediator.Send(query);
+            var orders = await _mediator.Send(query);
             return Ok(orders);
         }
     }
