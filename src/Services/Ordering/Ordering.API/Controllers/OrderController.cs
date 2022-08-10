@@ -22,9 +22,10 @@ namespace Ordering.API.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(typeof(List<OrdersVm>), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<List<OrdersVm>>> GetOrders()
         {
-            
+            var result =_mediator.h
         }
     }
 }
