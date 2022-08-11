@@ -25,6 +25,7 @@ namespace Ordering.Infrastructure.Persistence
                         TotalPrice = 350
                     }
                 };
+
                 await context.Orders.AddRangeAsync(newOrders);
                 await context.SaveChangesAsync();
 
