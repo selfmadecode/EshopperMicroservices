@@ -49,8 +49,7 @@ namespace Ordering.Infrastructure.Repository
             return await query.ToListAsync();
         }
 
-        public async Task<IReadOnlyList<T>> GetAsync(Expression<Func<T, bool>> predicate = null,
-                                       Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
+        public async Task<IReadOnlyList<T>> GetAsync(Expression<Func<T, bool>> predicate = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
                                        List<Expression<Func<T, object>>> includes = null,
                                        bool disableTracking = true)
         {
@@ -70,5 +69,12 @@ namespace Ordering.Infrastructure.Repository
 
             return await query.ToListAsync();
         }
+
+        public async Task<T> GetByIdAsync(Guid id)
+        {
+            //return await _dbContext.Set<T>().FirstOrDefaultAsync(x => x.Id == id);
+            return await _dbContext.Set<T>().FindAsync(id);
+        }
+
     }
 }
