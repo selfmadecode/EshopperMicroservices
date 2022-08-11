@@ -89,6 +89,12 @@ namespace Ordering.Infrastructure.Repository
             _dbContext.Entry(entity).State = EntityState.Modified;
 
             await _dbContext.SaveChangesAsync();
-        }        
+        }
+
+        public async Task DeleteAsync(T entity)
+        {
+            _dbContext.Set<T>().Remove(entity);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }
