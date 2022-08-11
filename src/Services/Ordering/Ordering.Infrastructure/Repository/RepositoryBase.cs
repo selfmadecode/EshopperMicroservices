@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ordering.Infrastructure.Repository
+﻿namespace Ordering.Infrastructure.Repository
 {
     public class RepositoryBase
     {
