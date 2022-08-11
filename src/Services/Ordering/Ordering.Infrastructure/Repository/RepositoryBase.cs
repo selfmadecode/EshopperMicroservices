@@ -76,5 +76,13 @@ namespace Ordering.Infrastructure.Repository
             return await _dbContext.Set<T>().FindAsync(id);
         }
 
+        public async Task<T> AddAsync(T entity)
+        {
+            _dbContext.Set<T>().Add(entity);
+            await _dbContext.SaveChangesAsync();
+
+            return entity;
+        }
+
     }
 }
