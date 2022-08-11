@@ -29,9 +29,9 @@ namespace Ordering.Infrastructure.Persistence
                 };
                 await context.Orders.AddRangeAsync(newOrders);
                 await context.SaveChangesAsync();
-            }
 
-           
+                logger.LogInformation("Seeding orders");
+            }           
         }
     }
 }
