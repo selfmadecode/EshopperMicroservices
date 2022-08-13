@@ -10,6 +10,7 @@ namespace Ordering.Infrastructure.Mail
 {
     public class MailService : IEmailService
     {
+        public EmailSettings _emailSettings { get; }
         public Task<bool> SendEmail(Email email)
         {
             throw new NotImplementedException();
