@@ -20,7 +20,7 @@ namespace Ordering.Infrastructure
                 options => options.UseSqlServer(config.GetConnectionString("OrderingConnectionString")));
 
             services.AddScoped(typeof(IAsyncRepository<>), typeof(RepositoryBase<>));
-
+            services.AddScoped<IOrderRepository, OrderRepository>();
             return services;
         }
     }
