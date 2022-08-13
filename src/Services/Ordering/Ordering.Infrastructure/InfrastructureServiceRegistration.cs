@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Ordering.Application.Contracts.Persistence;
 using Ordering.Infrastructure.Persistence;
+using Ordering.Infrastructure.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +18,8 @@ namespace Ordering.Infrastructure
         {
             services.AddDbContext<OrderContext>(
                 options => options.UseSqlServer(config.GetConnectionString("OrderingConnectionString")));
+
+            services.AddScoped(typeof(IAsyncRepository<>), typeof(RepositoryBase<>));
 
             return services;
         }
