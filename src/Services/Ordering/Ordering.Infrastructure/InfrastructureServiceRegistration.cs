@@ -23,7 +23,7 @@ namespace Ordering.Infrastructure
 
             services.AddScoped(typeof(IAsyncRepository<>), typeof(RepositoryBase<>));
             services.AddScoped<IOrderRepository, OrderRepository>();
-            services.AddScoped<IEmailService, MailService>();
+            services.AddTransient<IEmailService, MailService>();
 
             return services;
         }
