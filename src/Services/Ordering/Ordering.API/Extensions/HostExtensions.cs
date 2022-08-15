@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -22,13 +23,21 @@ namespace Ordering.API.Extensions
                 try
                 {
                                     }
-                catch (Exception ex)
+                catch (SqlException ex)
                 {
                     
                 }
             }
             return host;
         }
-    }
+
+        private static void InvokeSeeder<TContext>(Action<TContext, IServiceProvider> seeder,
+                                                    TContext context,
+                                                    IServiceProvider services)
+                                                    where TContext : DbContext
+        {
+            context.Database.Migrate();
+            seeder(context, services);
+        }
     }
 }
