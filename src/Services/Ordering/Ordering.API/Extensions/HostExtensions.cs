@@ -5,7 +5,12 @@ using System.Threading.Tasks;
 
 namespace Ordering.API.Extensions
 {
-    public class HostExtensions
+    public static class HostExtensions
     {
+        public static IHost MigrateDatabase<TContext>(this IHost host,
+            Action<TContext, IServiceProvider> seeder, int? retry = 0) where TContext : DbContext
+        {
+
+        }
     }
 }
