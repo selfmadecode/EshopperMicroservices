@@ -2,7 +2,6 @@
 using Ordering.Domain.Entities;
 using Ordering.Infrastructure.Persistence;
 using System.Collections.Generic;
-using System;
 using System.Threading.Tasks;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
