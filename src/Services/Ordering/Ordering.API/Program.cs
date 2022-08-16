@@ -3,6 +3,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Ordering.API.Extensions;
 using Ordering.Infrastructure.Persistence;
+using Microsoft.Extensions.DependencyInjection;
+
 
 namespace Ordering.API
 {
@@ -13,9 +15,12 @@ namespace Ordering.API
             var host = CreateHostBuilder(args).Build();
             host.MigrateDatabase<OrderContext>((context, services) =>
             {
-                var logger = services.GetService<ILogger<OrderContextSeed>>();
-                OrderContextSeed
+                var logger = services.GetService<ILogger<SeedOrder>>();
+                SeedOrder
+                    .SeedOrderAsync(context, logger)
+                        .Wait();
             });
+
             host.Run();
         }
 
