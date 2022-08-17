@@ -33,6 +33,16 @@ namespace Ordering.Infrastructure.Persistence
                         AddressLine = "Valley waters",
                         Country = "Nigeria",
                         TotalPrice = 350
+                    },
+                    new Order
+                    {
+                        UserName = "swn",
+                        FirstName = "First Name",
+                        LastName = "Last Name",
+                        EmailAddress = "kentekz61@yopmail.com",
+                        AddressLine = "Valley waters",
+                        Country = "Nigeria",
+                        TotalPrice = 150
                     }
                 };
 
