@@ -45,6 +45,8 @@ services:
     ports:
         - "5672:5672"
         - "15672:15672"
+ #first port for rabbitMq
+ #second port for rabbitmqDashboard
 
   pgadmin:
     container_name: pgadmin
