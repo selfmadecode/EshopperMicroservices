@@ -51,6 +51,8 @@ namespace Basket.API
                 });
             });
 
+            services.AddMassTransitHostedService();
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
