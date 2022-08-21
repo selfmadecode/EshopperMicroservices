@@ -35,7 +35,9 @@ namespace Basket.API
                 options.Configuration = Configuration.GetValue<string>("CacheSettings:ConnectionString");
             });
 
+            // General config
             services.AddScoped<IBasketRepository, BasketRepository>();
+            services.AddAutoMapper(typeof(Startup));
 
             // GRPC Config
             services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(options =>
