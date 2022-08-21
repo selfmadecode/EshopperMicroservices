@@ -2,6 +2,7 @@
 using Basket.API.Entities;
 using Basket.API.GrpcServices;
 using Basket.API.Repositories;
+using EventBus.Message.Events;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Net;
@@ -20,7 +21,7 @@ namespace Basket.API.Controllers
 
         private readonly IBasketRepository _repository;
         private readonly DiscountGrpcService _discountGrpcService;
-        public readonly IMapper _mapper;
+        private readonly IMapper _mapper;
 
         public BasketController(IBasketRepository repository, DiscountGrpcService discountGrpcService, IMapper mapper)
         {
@@ -92,6 +93,7 @@ namespace Basket.API.Controllers
                 return BadRequest();
             }
 
+            var eventMessage = _mapper.Map<BasketCheckoutEvent>(basketCheckout);
 
             await _repository.DeleteBasket(basketCheckout.UserName);
 
