@@ -1,4 +1,5 @@
-﻿using Basket.API.Entities;
+﻿using AutoMapper;
+using Basket.API.Entities;
 using Basket.API.GrpcServices;
 using Basket.API.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -19,11 +20,13 @@ namespace Basket.API.Controllers
 
         private readonly IBasketRepository _repository;
         private readonly DiscountGrpcService _discountGrpcService;
+        public readonly IMapper _mapper;
 
-        public BasketController(IBasketRepository repository, DiscountGrpcService discountGrpcService)
+        public BasketController(IBasketRepository repository, DiscountGrpcService discountGrpcService, IMapper mapper)
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
             _discountGrpcService = discountGrpcService ?? throw new ArgumentNullException(nameof(discountGrpcService));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
         [HttpGet("{userName}", Name = nameof(GetBasket))]
@@ -80,7 +83,19 @@ namespace Basket.API.Controllers
             // Get existing basket using username
             // create BasketCheckoutEvent - set total price on basketCheckout eventMessage
             // send checkout event to rabbitMq
-            // remove the basket           
+            // remove the basket
+
+            var basket = await _repository.GetBasket(basketCheckout.UserName);
+
+            if(basket == null)
+            {
+                return BadRequest();
+            }
+
+
+            await _repository.DeleteBasket(basketCheckout.UserName);
+
+            return Accepted();
         }
     }
 }
