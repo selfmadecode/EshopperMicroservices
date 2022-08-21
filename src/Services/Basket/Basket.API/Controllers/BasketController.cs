@@ -12,6 +12,9 @@ namespace Basket.API.Controllers
     [ApiController]
     public class BasketController : ControllerBase
     {
+        // Creates a cart for a user
+        // Calls Discount GRPC service to get discount of items before calculating the total price and store
+        // Uses a RedisDb for Caching
         private readonly IBasketRepository _repository;
         private readonly DiscountGrpcService _discountGrpcService;
 
