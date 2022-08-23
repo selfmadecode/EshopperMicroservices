@@ -45,6 +45,8 @@ namespace Ordering.API
                 });
             });
 
+            //services.AddAutoMapper(typeof(Startup));
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
