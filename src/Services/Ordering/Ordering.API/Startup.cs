@@ -24,6 +24,14 @@ namespace Ordering.API
             services.AddApplicationServices();
             services.AddInfrastructureServices(Configuration);
 
+            //MassTransit-RabbitMq configuration
+            services.AddMassTransit(config => {
+                config.UsingRabbitMq((ctx, cfg) =>
+                {
+                    cfg.Host(Configuration["EventBusSettings:HostAddress"]);
+                });
+            });
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
