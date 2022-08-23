@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using EventBus.Message.Events;
 using MassTransit;
+using MediatR;
 using System;
 using System.Threading.Tasks;
 
@@ -10,6 +11,7 @@ namespace Ordering.API.EventBusConsumer
     public class BasketCheckoutConsumer : IConsumer<BasketCheckoutEvent>
     {
         private readonly IMapper _mapper;
+        private readonly IMediator _mediator;
         public Task Consume(ConsumeContext<BasketCheckoutEvent> context)
         {
             throw new NotImplementedException();
