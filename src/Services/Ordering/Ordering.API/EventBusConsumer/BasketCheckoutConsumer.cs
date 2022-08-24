@@ -26,6 +26,9 @@ namespace Ordering.API.EventBusConsumer
         public async Task Consume(ConsumeContext<BasketCheckoutEvent> context)
         {
             var command = _mapper.Map<CheckoutOrderCommand>(context.Message);
+            
+            // Mediator knows which method to call since we are passing in a class that
+            // is passed to IRequestHandler
             var result = await _mediator.Send(command);
 
             _logger.LogInformation($"BasketCheckoutEvent consumed, orderId: {result}");
