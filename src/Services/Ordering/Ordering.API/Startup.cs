@@ -29,6 +29,9 @@ namespace Ordering.API
 
             //MassTransit-RabbitMq configuration
             // subscriber of the basketcheckout event
+
+            // Mass transit has a built in retry mechanism just incase that enables
+            // rabbit
             services.AddMassTransit(config => {
                 // Make this class a consumer class for an event
                 config.AddConsumer<BasketCheckoutConsumer>();
