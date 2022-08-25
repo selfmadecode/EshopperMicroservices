@@ -89,6 +89,7 @@ services:
       #overide the connection string used by basket ms to call discount grpc, the connection string now points to the image
     depends_on:
       - basketdb
+      - rabbitmq
     ports:
       - "8001:80"
 
