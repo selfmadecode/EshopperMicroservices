@@ -32,6 +32,7 @@ namespace Ordering.API
 
             // Mass transit has a built in connection retry mechanism that enables
             // rabbitMq and Mass transit recconect if connection failed on app start
+            // no need for a custom retry mechanism
             services.AddMassTransit(config => {
                 // Make this class a consumer class for an event
                 config.AddConsumer<BasketCheckoutConsumer>();
