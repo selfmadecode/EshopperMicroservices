@@ -24,6 +24,7 @@ namespace OcelotApiGw
                 })
                 .ConfigureLogging((hostingContext, loggingBuilder) =>
                 {
+                    // Can be used to track ocelot log from console and debug window
                     // Get Logging section from app settings
                     loggingBuilder.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
                     loggingBuilder.AddConsole();
