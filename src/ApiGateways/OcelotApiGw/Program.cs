@@ -24,7 +24,7 @@ namespace OcelotApiGw
                 })
                 .ConfigureLogging((hostingContext, loggingBuilder) =>
                 {
-                    //log
+                    loggingBuilder.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
                 });
     }
 }
