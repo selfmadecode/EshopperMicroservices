@@ -24,6 +24,7 @@ namespace OcelotApiGw
                 })
                 .ConfigureLogging((hostingContext, loggingBuilder) =>
                 {
+                    // Get Logging section from app setting
                     loggingBuilder.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
                 });
     }
