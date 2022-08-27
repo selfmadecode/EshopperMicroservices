@@ -118,3 +118,7 @@ After creating the protofile,
 	gRPC stub classes -> server only
 
 
+
+Developed API GATEWAY using OCELOT
+
+
