@@ -120,5 +120,5 @@ After creating the protofile,
 
 
 Developed API GATEWAY using OCELOT
-
+Applied the GateWay Routing pattern
 
