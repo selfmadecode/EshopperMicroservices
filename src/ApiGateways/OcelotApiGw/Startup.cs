@@ -39,6 +39,7 @@ namespace OcelotApiGw
                 });
             });
 
+            // will check for the custom json configuration and route to appropriate apis
             await app.UseOcelot();
         }
     }
