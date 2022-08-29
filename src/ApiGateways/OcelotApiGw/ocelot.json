@@ -1,3 +1,4 @@
 {
-
+  // downstreams belong to the internal microservices
+  // upstream are used when exposing API's to external applications
 }
