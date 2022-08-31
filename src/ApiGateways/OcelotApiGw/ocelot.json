@@ -79,7 +79,7 @@
         }
       ],
       "UpstreamPathTemplate": "/Basket/Checkout",
-      "UpstreamHttpMethod": [ "POST" ],
+      "UpstreamHttpMethod": [ "POST" ]//,
       //"RateLimitOptions": {
       //  "ClientWhitelist": [],
       //  "EnableRateLimiting": true,
