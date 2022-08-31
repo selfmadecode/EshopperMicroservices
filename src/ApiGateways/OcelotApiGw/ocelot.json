@@ -8,7 +8,7 @@
   "Routes": [
     //Catalog API
     {
-      "DownstreamPathTemplate": "/api/v1/Catalog",
+      "DownstreamPathTemplate": "/api/Catalog",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -21,7 +21,7 @@
       //"FileCacheOptions": { "TtlSeconds": 30 }
     },
     {
-      "DownstreamPathTemplate": "/api/v1/Catalog/{id}",
+      "DownstreamPathTemplate": "/api/Catalog/{id}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -33,7 +33,7 @@
       "UpstreamHttpMethod": [ "GET", "DELETE" ]
     },
     {
-      "DownstreamPathTemplate": "/api/v1/Catalog/GetProductByCategory/{category}",
+      "DownstreamPathTemplate": "/api/Catalog/GetProductByCategory/{category}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
