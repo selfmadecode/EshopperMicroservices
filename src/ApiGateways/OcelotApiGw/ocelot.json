@@ -79,14 +79,14 @@
         }
       ],
       "UpstreamPathTemplate": "/Basket/Checkout",
-      "UpstreamHttpMethod": [ "POST" ]//,
-      //"RateLimitOptions": {
-      //  "ClientWhitelist": [],
-      //  "EnableRateLimiting": true,
-      //  "Period": "3s",
-      //  "PeriodTimespan": 1,
-      //  "Limit": 1
-      //} //Ocelot supports ratelimiting of upstream requests so that your downstream services do not become overloaded
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "3s",
+        "PeriodTimespan": 1,
+        "Limit": 1
+      } //Ocelot supports ratelimiting of upstream requests so that your downstream services do not become overloaded
     },
     //Discount API
     {
