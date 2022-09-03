@@ -1,4 +1,6 @@
 {
+  // in order to test this on local, right click proj
+  // select properties, Debug, set asp.net env variable to Local
   "Routes": [
     // downstreams belong to the internal microservices
     // downstream describe the url that a request will be forwarded to
