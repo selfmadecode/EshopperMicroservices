@@ -1,4 +1,7 @@
 {
+  // Docker file env name for our containers is Development, so this config will be used by docker
+  // Host will be the name of the container
+  // Port will be the default port
   "Routes": [
     //Catalog API
     {
