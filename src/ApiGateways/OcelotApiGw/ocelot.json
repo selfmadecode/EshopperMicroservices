@@ -1,11 +1,11 @@
 {
-  // downstreams belong to the internal microservices
-  // downstream describe the url that a request will be forwarded to
-
-  // upstream are used when exposing API's to external applications
-  // upstream is used by ocelot to determine what which upstreampathtemplate to use for a given request
-
   "Routes": [
+    // downstreams belong to the internal microservices
+    // downstream describe the url that a request will be forwarded to
+
+    // upstream are used when exposing API's to external applications
+    // upstream is used by ocelot to determine what which upstreampathtemplate to use for a given request
+
     //Catalog API
     {
       "DownstreamPathTemplate": "/api/Catalog",
@@ -86,7 +86,12 @@
         "Period": "3s",
         "PeriodTimespan": 1,
         "Limit": 1
-      } //Ocelot supports ratelimiting of upstream requests so that your downstream services do not become overloaded
+        //Ocelot supports ratelimiting of upstream requests 
+        //so that your downstream services do not become overloaded
+
+        // ClientWhitelist an array that contains a list of client that would not be affected
+        // by rate limiting
+      }
     },
     //Discount API
     {
