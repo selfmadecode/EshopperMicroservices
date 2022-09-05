@@ -1,0 +1,28 @@
+OcelotApiGw
+
+A gateway built to serve as a BFF (Backend for frontend) for other internal microservices using Ocelot, client applications
+can access only internal microservices using routes defined on the gateway.
+
+
+Catalog API
+An API used to create, manage and return products, MongoDb image was pulled to serve as the datastore.
+
+Discount API
+This API is used to create discount for different products and return the discount for a particular product, Dapper served as the
+ORM for entity mapping, NpgSQL is the data provider used to connect or communicate with the POSTGRESQL db
+PgAdmin was used as a visual tool for managing postgres
+
+Discount.GRPC
+Same with Discount.API, GRPC was used here to achieve internal communication between other microservice that would want to get
+discount information about a product
+
+Basket API
+Used to manage a user basket, before an item is added to a user basket, discount.grpc GetDiscount method is called to get 
+product discount. When checkout service is called, a broadcast is made to Order service to store user order/basket details
+This service broadcasts to Order API using RabbitMq and MassTransit
+RedisCache was used to store user's basket information
+ 
+Order API
+Used to manage user's order details, this API subscribes to the event raised by Basket checkout endpoint using RabbitMq and 
+MassTransit. The architecture adopted for this API is the Onion architecture (Clean architecture) and Mediator Pattern, Repository pattern was
+implemented for database operation, Entity framework served as the ORM used to query the database (MsSql).
