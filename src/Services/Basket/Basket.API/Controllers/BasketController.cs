@@ -53,7 +53,7 @@ namespace Basket.API.Controllers
         public async Task<ActionResult<ShoppingCart>> UpdateBasket([FromBody] ShoppingCart basket)
         {
             // TODO : Communicate with Discount.Grpc
-            // To setup the connection, bascket controller has to have the contract/proto file
+            // To setup the connection, basket controller has to have the contract/proto file
             // right click project, click add connected services,
             // service reference(grpc..)
             // add service reference
