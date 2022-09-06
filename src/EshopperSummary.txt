@@ -1,7 +1,7 @@
 OcelotApiGw
 
-A gateway built to serve as a BFF (Backend for frontend) for other internal microservices using Ocelot, client applications
-can access only internal microservices using routes defined on the gateway.
+A gateway built to serve as a BFF (Backend for frontend) for other internal microservices using Ocelot, applied gateway routing
+pattern which allows client applications to acces only internal microservices using routes defined on the gateway.
 
 
 Catalog API
