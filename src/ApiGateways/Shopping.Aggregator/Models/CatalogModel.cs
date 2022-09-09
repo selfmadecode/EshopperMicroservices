@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Shopping.Aggregator.Model
 {
-    public class Product
+    public class CatalogModel
     {
         public string Id { get; set; }
         public string Name { get; set; }
