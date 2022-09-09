@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace Shopping.Aggregator.Model
 {
+    // Product model for Catalog micro service
     public class CatalogModel
     {
         public string Id { get; set; }
