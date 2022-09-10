@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Shopping.Aggregator.Model
+﻿namespace Shopping.Aggregator.Model
 {
     // Product model for Catalog micro service
     public class CatalogModel
