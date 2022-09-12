@@ -1,4 +1,5 @@
-﻿using Shopping.Aggregator.Model;
+﻿using Shopping.Aggregator.Extensions;
+using Shopping.Aggregator.Model;
 using Shopping.Aggregator.Services;
 using System;
 using System.Collections.Generic;
@@ -17,9 +18,11 @@ namespace Shopping.Aggregator.Services
             _client = client ?? throw new ArgumentNullException(nameof(client));
         }
 
-        public Task<IEnumerable<CatalogModel>> GetCatalog()
+        public async Task<IEnumerable<CatalogModel>> GetCatalog()
         {
-            throw new NotImplementedException();
+            var response = await _client.GetAsync("/api/GetProducts");
+
+            return await response.ReadContentAs<List<CatalogModel>>();
         }
 
         public Task<CatalogModel> GetCatalog(string id)
