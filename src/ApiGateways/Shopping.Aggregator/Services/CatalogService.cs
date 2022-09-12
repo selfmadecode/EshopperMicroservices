@@ -18,6 +18,7 @@ namespace Shopping.Aggregator.Services
             _client = client ?? throw new ArgumentNullException(nameof(client));
         }
 
+        // Calls catalog api to retrieve info
         public async Task<IEnumerable<CatalogModel>> GetCatalog()
         {
             var response = await _client.GetAsync("/api/GetProducts");
