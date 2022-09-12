@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Shopping.Aggregator.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,15 @@ namespace Shopping.Aggregator
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Create httpclient factory for services
+            services.AddHttpClient<ICatalogService, CatalogService>(options => 
+                options.BaseAddress = new Uri(Configuration["ApiSettings:CatalogUrl"]));
+            
+            services.AddHttpClient<IOrderService, OrderService>(options => 
+                options.BaseAddress = new Uri(Configuration["ApiSettings:OrderingUrl"]));
+            
+            services.AddHttpClient<IBasketService, BasketService>(options => 
+                options.BaseAddress = new Uri(Configuration["ApiSettings:BasketUrl"]));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
