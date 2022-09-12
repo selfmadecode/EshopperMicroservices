@@ -32,9 +32,11 @@ namespace Shopping.Aggregator.Services
             return await response.ReadContentAs<CatalogModel>();
         }
 
-        public Task<IEnumerable<CatalogModel>> GetCatalogByCategory(string category)
+        public async Task<IEnumerable<CatalogModel>> GetCatalogByCategory(string category)
         {
-            throw new NotImplementedException();
+            var response = await _client.GetAsync($"/api/GetProductByCategory/category");
+
+            return await response.ReadContentAs<List<CatalogModel>>();
         }
     }
 }
