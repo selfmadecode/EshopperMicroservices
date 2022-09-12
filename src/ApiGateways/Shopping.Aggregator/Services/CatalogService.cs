@@ -25,9 +25,11 @@ namespace Shopping.Aggregator.Services
             return await response.ReadContentAs<List<CatalogModel>>();
         }
 
-        public Task<CatalogModel> GetCatalog(string id)
+        public async Task<CatalogModel> GetCatalog(string id)
         {
-            throw new NotImplementedException();
+            var response = await _client.GetAsync($"/api/GetProduct/{id}");
+
+            return await response.ReadContentAs<CatalogModel>();
         }
 
         public Task<IEnumerable<CatalogModel>> GetCatalogByCategory(string category)
