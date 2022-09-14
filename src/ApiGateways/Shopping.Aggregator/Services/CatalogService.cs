@@ -21,14 +21,14 @@ namespace Shopping.Aggregator.Services
         // Calls catalog api to retrieve info
         public async Task<IEnumerable<CatalogModel>> GetCatalog()
         {
-            var response = await _client.GetAsync("/api/GetProducts");
+            var response = await _client.GetAsync("/api/Catalog");
 
             return await response.ReadContentAs<List<CatalogModel>>();
         }
 
         public async Task<CatalogModel> GetCatalog(string id)
         {
-            var response = await _client.GetAsync($"/api/GetProduct/{id}");
+            var response = await _client.GetAsync($"/api/Catalog/{id}");
 
             return await response.ReadContentAs<CatalogModel>();
         }
