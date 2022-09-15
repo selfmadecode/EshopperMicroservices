@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Shopping.Aggregator.Models;
 using Shopping.Aggregator.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace Shopping.Aggregator.Controllers
@@ -21,6 +23,13 @@ namespace Shopping.Aggregator.Controllers
             _basket = basket ?? throw new ArgumentNullException(nameof(basket));
             _order = order ?? throw new ArgumentNullException(nameof(order));
             _catalog = catalog ?? throw new ArgumentNullException(nameof(catalog));
+        }
+
+        [HttpGet("{userName}", Name = "GetShopping")]
+        [ProducesResponseType(typeof(ShoppingModel), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<ShoppingModel>> GetShopping(string userName)
+        {
+
         }
     }
 }
