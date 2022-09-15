@@ -15,5 +15,12 @@ namespace Shopping.Aggregator.Controllers
         private readonly IBasketService _basket;
         private readonly IOrderService _order;
         private readonly ICatalogService _catalog;
+
+        public ShoppingController(IBasketService basket, IOrderService order, ICatalogService catalog)
+        {
+            _basket = basket ?? throw new ArgumentNullException(nameof(basket));
+            _order = order ?? throw new ArgumentNullException(nameof(order));
+            _catalog = catalog ?? throw new ArgumentNullException(nameof(catalog));
+        }
     }
 }
