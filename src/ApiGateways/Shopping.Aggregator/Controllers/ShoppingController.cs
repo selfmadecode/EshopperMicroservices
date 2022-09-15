@@ -14,5 +14,6 @@ namespace Shopping.Aggregator.Controllers
     {
         private readonly IBasketService _basket;
         private readonly IOrderService _order;
+        private readonly ICatalogService _catalog;
     }
 }
