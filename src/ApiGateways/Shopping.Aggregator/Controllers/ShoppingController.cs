@@ -13,5 +13,6 @@ namespace Shopping.Aggregator.Controllers
     public class ShoppingController : ControllerBase
     {
         private readonly IBasketService _basket;
+        private readonly IOrderService _order;
     }
 }
