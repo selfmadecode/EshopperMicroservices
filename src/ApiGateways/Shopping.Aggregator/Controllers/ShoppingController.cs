@@ -35,6 +35,31 @@ namespace Shopping.Aggregator.Controllers
             // consume ordering microservices in order to retrieve order list
             // return root ShoppngModel dto class which including all responses
 
+            var basket = await _basket.GetBasket(userName);
+
+            foreach (var item in basket.Items)
+            {
+                var product = await _catalog.GetCatalog(item.ProductId);
+
+                // set additional product fields onto basket item
+                item.ProductName = product.Name;
+                item.Category = product.Category;
+                item.Summary = product.Summary;
+                item.Description = product.Description;
+                item.ImageFile = product.ImageFile;
+            }
+
+            var orders = await _order.GetOrdersByUserName(userName);
+
+            var shoppingModel = new ShoppingModel
+            {
+                UserName = userName,
+                BasketWithProducts = basket,
+                Orders = orders
+            };
+
+            return Ok(shoppingModel);
+
         }
     }
 }
