@@ -59,7 +59,6 @@ namespace Shopping.Aggregator.Controllers
             };
 
             return Ok(shoppingModel);
-
         }
     }
 }
