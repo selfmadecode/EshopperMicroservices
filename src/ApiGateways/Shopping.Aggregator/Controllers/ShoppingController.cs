@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Shopping.Aggregator.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,6 @@ namespace Shopping.Aggregator.Controllers
     [ApiController]
     public class ShoppingController : ControllerBase
     {
+        private readonly IBasketService _basket;
     }
 }
