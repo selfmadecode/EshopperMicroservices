@@ -155,4 +155,3 @@ services:
       - ordering.api
     ports:
       - "8005:80"
-
