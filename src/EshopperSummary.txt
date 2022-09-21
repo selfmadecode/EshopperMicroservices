@@ -26,3 +26,9 @@ Order API
 Used to manage user's order details, this API subscribes to the event raised by Basket checkout endpoint using RabbitMq and 
 MassTransit. The architecture adopted for this API is the Onion architecture (Clean architecture) and Mediator Pattern, Repository pattern was
 implemented for database operation, Entity framework served as the ORM used to query the database (MsSql).
+
+Web
+Built with a 3 layer architecture
+Data Access layer
+Business Logic layer
+Presentation layer
