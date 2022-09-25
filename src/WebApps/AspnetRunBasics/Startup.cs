@@ -18,14 +18,7 @@ namespace AspnetRunBasics
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            #region database services
-
-            //// use in-memory database
-            //services.AddDbContext<AspnetRunContext>(c =>
-            //    c.UseInMemoryDatabase("AspnetRunConnection"));
-
-           
-            #endregion            
+            
 
             #region project services
 
