@@ -24,10 +24,7 @@ namespace AspnetRunBasics
             //services.AddDbContext<AspnetRunContext>(c =>
             //    c.UseInMemoryDatabase("AspnetRunConnection"));
 
-            // add database dependecy
-            services.AddDbContext<AspnetRunContext>(c =>
-                c.UseSqlServer(Configuration.GetConnectionString("AspnetRunConnection")));
-
+           
             #endregion            
 
             #region project services
