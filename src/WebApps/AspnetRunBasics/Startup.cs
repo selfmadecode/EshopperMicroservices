@@ -26,7 +26,7 @@ namespace AspnetRunBasics
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<ICartRepository, CartRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
-            services.AddScoped<IContactRepository, ContactRepository>();
+            //services.AddScoped<IContactRepository, ContactRepository>();
 
             #endregion
 
