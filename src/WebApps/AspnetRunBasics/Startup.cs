@@ -23,7 +23,7 @@ namespace AspnetRunBasics
             #region project services
 
             // add repository dependecy
-            services.AddScoped<IProductRepository, ProductRepository>();
+            //services.AddScoped<IProductRepository, ProductRepository>();
             //services.AddScoped<ICartRepository, CartRepository>();
             //services.AddScoped<IOrderRepository, OrderRepository>();
             //services.AddScoped<IContactRepository, ContactRepository>();
