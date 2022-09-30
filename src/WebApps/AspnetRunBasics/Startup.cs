@@ -18,15 +18,15 @@ namespace AspnetRunBasics
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
+
 
             #region project services
 
             // add repository dependecy
-            //services.AddScoped<IProductRepository, ProductRepository>();
-            //services.AddScoped<ICartRepository, CartRepository>();
-            //services.AddScoped<IOrderRepository, OrderRepository>();
-            //services.AddScoped<IContactRepository, ContactRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<ICartRepository, CartRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IContactRepository, ContactRepository>();
 
             #endregion
 
