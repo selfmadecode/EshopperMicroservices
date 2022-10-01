@@ -15,9 +15,16 @@ namespace AspnetRunBasics.Services
         {
             _client = client ?? throw new ArgumentNullException(nameof(client));
         }
-        public Task<CatalogModel> CreateCatalog(CatalogModel product)
+        public async Task<CatalogModel> CreateCatalog(CatalogModel model)
         {
-            throw new NotImplementedException();
+            var response = await _client.PostAsJson($"/Catalog", model);
+
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.ReadContentAs<CatalogModel>();
+            }
+
+            throw new Exception("Something went wrong!");
         }
 
         public async Task<IEnumerable<CatalogModel>> GetCatalog()
