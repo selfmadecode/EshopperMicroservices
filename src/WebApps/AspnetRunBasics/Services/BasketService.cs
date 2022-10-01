@@ -22,7 +22,11 @@ namespace AspnetRunBasics.Services
         }
         public async Task CheckOutBasket(BasketCheckoutModel model)
         {
-            throw new NotImplementedException();
+            var response = await _client.PostAsJson($"/Basket/Checkout", model);
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new Exception("Something went wrong when calling api.");
+            }
         }
 
         public async Task<BasketModel> GetBasket(string userName)
