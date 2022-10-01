@@ -6,9 +6,6 @@
     <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
   </PropertyGroup>
 
-  <ItemGroup>    
-  </ItemGroup>
-
 
 
 </Project>
