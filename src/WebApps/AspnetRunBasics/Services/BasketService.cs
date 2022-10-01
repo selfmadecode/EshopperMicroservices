@@ -33,7 +33,13 @@ namespace AspnetRunBasics.Services
 
         public async Task<BasketModel> UpdateBasket(BasketModel model)
         {
-            throw new NotImplementedException();
+            var response = await _client.PostAsJson($"/Basket", model);
+            if (response.IsSuccessStatusCode)
+                return await response.ReadContentAs<BasketModel>();
+            else
+            {
+                throw new Exception("Something went wrong when calling api.");
+            }
         }
     }
 }
