@@ -8,6 +8,11 @@ using System.Threading.Tasks;
 
 namespace AspnetRunBasics.Services
 {
+    /// <summary>
+    /// The urls being called are defined in the gateway, the gateway then redirects the request
+    /// to the actual endpoint configured on the DownstreamPathTemplate  
+    /// Check OcelotApiGw
+    /// </summary>
     public class CatalogService : ICatalogService
     {
         private readonly HttpClient _client;
