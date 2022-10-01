@@ -2,7 +2,7 @@ CATALOG.API
 
 This microservice is built using MongoDb
 
-Selected properties on Catalog.API, on debug tab, changed profile to Catalog.API
+Select properties on Catalog.API, on debug tab, changed profile to Catalog.API
 
 
 Pulled mongo image -> docker pull mongo
@@ -122,3 +122,4 @@ After creating the protofile,
 Developed API GATEWAY using OCELOT
 Applied the GateWay Routing pattern
 
+The web application serves as an entry point and consumes the gateway 
