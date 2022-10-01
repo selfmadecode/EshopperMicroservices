@@ -27,6 +27,12 @@ namespace AspnetRunBasics.Services
             return await response.ReadContentAs<List<CatalogModel>>();
         }
 
+        public async Task<IEnumerable<CatalogModel>> GetCatalogByCategory(string categoryName)
+        {
+            var response = await _client.GetAsync($"/Catalog/GetProductByCategory/{categoryName}");
+            return await response.ReadContentAs<List<CatalogModel>>();
+        }
+
         
     }
 }
