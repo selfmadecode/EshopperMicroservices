@@ -10,7 +10,7 @@ namespace AspnetRunBasics.Services
     {
         Task<IEnumerable<CatalogModel>> GetCatalog();
         Task<IEnumerable<CatalogModel>> GetCatalogByCategory(string categoryName);
-        Task<CatalogModel> GetProduct(string id);
-        Task<CatalogModel> CreateProduct(CatalogModel product);
+        Task<CatalogModel> GetCatalog(string id);
+        Task<CatalogModel> CreateCatalog (CatalogModel product);
     }
 }
