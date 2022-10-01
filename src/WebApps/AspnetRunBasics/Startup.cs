@@ -21,8 +21,11 @@ namespace AspnetRunBasics
         public void ConfigureServices(IServiceCollection services)
         {
             //Create httpclient factory for services
-            services.AddHttpClient<IBasketService, BasketService>(options =>
+            services.AddHttpClient<ICatalogService, CatalogService>(options =>
                 options.BaseAddress = new Uri(Configuration["ApiSettings:ApiSettings"]));
+
+            services.AddHttpClient<IBasketService, BasketService>(options =>
+               options.BaseAddress = new Uri(Configuration["ApiSettings:ApiSettings"]));
 
             #region project services
 
