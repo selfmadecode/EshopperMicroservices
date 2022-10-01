@@ -1,4 +1,5 @@
-﻿using AspnetRunBasics.Models;
+﻿using AspnetRunBasics.Extensions;
+using AspnetRunBasics.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,11 @@ using System.Threading.Tasks;
 
 namespace AspnetRunBasics.Services
 {
+    /// <summary>
+    /// The urls being called are defined in the gateway, the gateway then redirects the request
+    /// to the actual endpoint configured on the DownstreamPathTemplate  
+    /// Check OcelotApiGw
+    /// </summary>
     public class BasketService : IBasketService
     {
         private readonly HttpClient _client;
@@ -14,17 +20,18 @@ namespace AspnetRunBasics.Services
         {
             _client = client ?? throw new ArgumentNullException(nameof(client));
         }
-        public Task CheckOutBasket(BasketCheckoutModel model)
+        public async Task CheckOutBasket(BasketCheckoutModel model)
         {
             throw new NotImplementedException();
         }
 
-        public Task<BasketModel> GetBasket(string userName)
+        public async Task<BasketModel> GetBasket(string userName)
         {
-            throw new NotImplementedException();
+            var response = await _client.GetAsync($"/Basket/{userName}");
+            return await response.ReadContentAs<BasketModel>();
         }
 
-        public Task<BasketModel> UpdateBasket(BasketModel model)
+        public async Task<BasketModel> UpdateBasket(BasketModel model)
         {
             throw new NotImplementedException();
         }
