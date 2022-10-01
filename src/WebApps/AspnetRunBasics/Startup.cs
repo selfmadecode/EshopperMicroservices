@@ -27,15 +27,8 @@ namespace AspnetRunBasics
             services.AddHttpClient<IBasketService, BasketService>(options =>
                options.BaseAddress = new Uri(Configuration["ApiSettings:ApiSettings"]));
 
-            #region project services
-
-            // add repository dependecy
-            services.AddScoped<IProductRepository, ProductRepository>();
-            services.AddScoped<ICartRepository, CartRepository>();
-            services.AddScoped<IOrderRepository, OrderRepository>();
-            services.AddScoped<IContactRepository, ContactRepository>();
-
-            #endregion
+            services.AddHttpClient<IOrderService, OrderService>(options =>
+               options.BaseAddress = new Uri(Configuration["ApiSettings:ApiSettings"]));
 
             services.AddRazorPages();
         }
