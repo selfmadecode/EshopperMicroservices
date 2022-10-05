@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using AspnetRunBasics.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -7,13 +8,13 @@ namespace AspnetRunBasics
 {
     public class ProductDetailModel : PageModel
     {
-        private readonly IProductRepository _productRepository;
-        private readonly ICartRepository _cartRepository;
+        private readonly ICatalogService _catalogService;
+        private readonly IBasketService _basketService;
 
-        public ProductDetailModel(IProductRepository productRepository, ICartRepository cartRepository)
+        public ProductDetailModel(ICatalogService catalogService, IBasketService basketService)
         {
-            _productRepository = productRepository ?? throw new ArgumentNullException(nameof(productRepository));
-            _cartRepository = cartRepository ?? throw new ArgumentNullException(nameof(cartRepository));
+            _catalogService = catalogService ?? throw new ArgumentNullException(nameof(catalogService));
+            _basketService = basketService ?? throw new ArgumentNullException(nameof(basketService));
         }
 
         public Entities.Product Product { get; set; }
