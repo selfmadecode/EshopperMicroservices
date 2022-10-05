@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using AspnetRunBasics.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -7,13 +8,13 @@ namespace AspnetRunBasics
 {
     public class CheckOutModel : PageModel
     {
-        private readonly ICartRepository _cartRepository;
-        private readonly IOrderRepository _orderRepository;
+        private readonly IBasketService _basketService;
+        private readonly IOrderService _orderService;
 
-        public CheckOutModel(ICartRepository cartRepository, IOrderRepository orderRepository)
+        public CheckOutModel(IBasketService basketService, IOrderService orderService)
         {
-            _cartRepository = cartRepository ?? throw new ArgumentNullException(nameof(cartRepository));
-            _orderRepository = orderRepository ?? throw new ArgumentNullException(nameof(orderRepository));
+            _basketService = basketService ?? throw new ArgumentNullException(nameof(basketService));
+            _orderService = orderService ?? throw new ArgumentNullException(nameof(orderService));
         }
 
         [BindProperty]
