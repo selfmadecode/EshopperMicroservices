@@ -123,3 +123,7 @@ Developed API GATEWAY using OCELOT
 Applied the GateWay Routing pattern
 
 The web application serves as an entry point and consumes the gateway 
+The web application calls the dockerized microservices
+
+To test the UI(set the web as startup project), start other microservices(docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d), lauch and put breakpoint on web
+
