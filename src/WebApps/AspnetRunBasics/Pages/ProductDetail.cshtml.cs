@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using AspnetRunBasics.Models;
 using AspnetRunBasics.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -17,7 +18,7 @@ namespace AspnetRunBasics
             _basketService = basketService ?? throw new ArgumentNullException(nameof(basketService));
         }
 
-        public Entities.Product Product { get; set; }
+        public CatalogModel Product { get; set; }
 
         [BindProperty]
         public string Color { get; set; }
