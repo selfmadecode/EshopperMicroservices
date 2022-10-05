@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using AspnetRunBasics.Models;
 using AspnetRunBasics.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -18,31 +19,32 @@ namespace AspnetRunBasics
         }
 
         [BindProperty]
-        public Entities.Order Order { get; set; }
+        public BasketCheckoutModel Order { get; set; }
 
-        public Entities.Cart Cart { get; set; } = new Entities.Cart();
+        public BasketModel Cart { get; set; } = new BasketModel();
 
         public async Task<IActionResult> OnGetAsync()
         {
-            Cart = await _cartRepository.GetCartByUserName("test");
+            var userName = "swn";
+            Cart = await _basketService.GetBasket(userName);
             return Page();
         }
 
         public async Task<IActionResult> OnPostCheckOutAsync()
         {
-            Cart = await _cartRepository.GetCartByUserName("test");
+            var userName = "swn";
+            Cart = await _basketService.GetBasket(userName);
 
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            Order.UserName = "test";
+            Order.UserName = userName;
             Order.TotalPrice = Cart.TotalPrice;
 
-            await _orderRepository.CheckOut(Order);
-            await _cartRepository.ClearCart("test");
-            
+            await _basketService.CheckOutBasket(Order);
+
             return RedirectToPage("Confirmation", "OrderSubmitted");
         }       
     }
