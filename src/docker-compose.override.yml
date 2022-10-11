@@ -155,6 +155,7 @@ services:
       - ordering.api
     ports:
       - "8005:80"
+
   aspnetrunbasics:
     container_name: aspnetrunbasics
     environment:
