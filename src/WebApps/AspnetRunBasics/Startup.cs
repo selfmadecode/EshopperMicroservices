@@ -22,13 +22,13 @@ namespace AspnetRunBasics
         {
             //Create httpclient factory for services
             services.AddHttpClient<ICatalogService, CatalogService>(options =>
-                options.BaseAddress = new Uri(Configuration["ApiSettings:ApiSettings"]));
+                options.BaseAddress = new Uri(Configuration["ApiSettings:GatewayAddress"]));
 
             services.AddHttpClient<IBasketService, BasketService>(options =>
-               options.BaseAddress = new Uri(Configuration["ApiSettings:ApiSettings"]));
+               options.BaseAddress = new Uri(Configuration["ApiSettings:GatewayAddress"]));
 
             services.AddHttpClient<IOrderService, OrderService>(options =>
-               options.BaseAddress = new Uri(Configuration["ApiSettings:ApiSettings"]));
+               options.BaseAddress = new Uri(Configuration["ApiSettings:GatewayAddress"]));
 
             services.AddRazorPages();
         }
