@@ -14,6 +14,7 @@ namespace IdentityServer
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddOpenIddict();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
