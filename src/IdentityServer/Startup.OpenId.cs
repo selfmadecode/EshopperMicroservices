@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using IdentityServer.Context;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using OpenIddict.Abstractions;
+using System;
 
 namespace IdentityServer
 {
@@ -16,7 +18,18 @@ namespace IdentityServer
                 options.ClaimsIdentity.RoleClaimType = OpenIddictConstants.Claims.Role;
                 // configure more options if necessary...
             });
-            services.AddOpenIddict();
+
+            // configure the OpenID Connect server
+            services.AddOpenIddict()
+                // Register the OpenIddict core components.
+                .AddCore(options =>
+                {
+                    // Configure OpenIddict to use the Entity Framework Core stores and models.
+                    // Note: call ReplaceDefaultEntities() to replace the default entities.
+                    options.UseEntityFrameworkCore()
+                           .UseDbContext<ApplicationDbContext>();
+                })
+                ;
         }
     }
 }
