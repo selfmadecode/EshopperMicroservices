@@ -24,7 +24,7 @@ namespace IdentityServer
             services.AddDbContext<ApplicationDbContext>(options =>
             {
                 // Configure Entity Framework Core to use Microsoft SQL Server.
-                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
 
                 // Register the entity sets needed by OpenIddict.
                 options.UseOpenIddict(); // add the OpenIddict entity sets to DbContext
