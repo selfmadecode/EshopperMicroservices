@@ -32,6 +32,7 @@ namespace IdentityServer
                 options.UseOpenIddict(); // add the OpenIddict entity sets to DbContext
             });
 
+            // OpenIdDict configuration
             ConfigureOpenIdDict(services);
         }
 
