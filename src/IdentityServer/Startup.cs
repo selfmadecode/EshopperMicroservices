@@ -32,15 +32,7 @@ namespace IdentityServer
                 options.UseOpenIddict(); // add the OpenIddict entity sets to DbContext
             });
 
-            // Configure the identity system to use the OpenIddict claim types
-            services.Configure<IdentityOptions>(options =>
-            {
-                options.ClaimsIdentity.UserNameClaimType = OpenIddictConstants.Claims.Name;
-                options.ClaimsIdentity.UserIdClaimType = OpenIddictConstants.Claims.Subject;
-                options.ClaimsIdentity.RoleClaimType = OpenIddictConstants.Claims.Role;
-                // configure more options if necessary...
-            });
-            services.AddOpenIddict();
+            ConfigureOpenIdDict(services);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
