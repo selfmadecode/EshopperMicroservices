@@ -11,7 +11,7 @@ using OpenIddict.Abstractions;
 
 namespace IdentityServer
 {
-    public class Startup
+    public partial class Startup
     {
         public IConfiguration Configuration { get; set; }
 
