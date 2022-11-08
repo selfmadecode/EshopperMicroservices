@@ -29,7 +29,13 @@ namespace IdentityServer
                     options.UseEntityFrameworkCore()
                            .UseDbContext<ApplicationDbContext>();
                 })
-                ;
+                // Register the OpenIddict server components.
+                .AddServer(options =>
+                {
+                    // Enable the token endpoint.
+                    options.SetTokenEndpointUris("/connect/token");
+                    
+                });
         }
     }
 }
