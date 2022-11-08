@@ -37,6 +37,15 @@ namespace IdentityServer
                     options.SetUserinfoEndpointUris("/connect/userinfo");
                     options.AllowPasswordFlow();
                     options.AllowRefreshTokenFlow();
+                    // Add all auth flows you want to support
+                    // Supported flows are:
+                    //      - Authorization code flow
+                    //      - Client credentials flow
+                    //      - Device code flow
+                    //      - Implicit flow
+                    //      - Password flow
+                    //      - Refresh token flow
+
                     
                 });
         }
