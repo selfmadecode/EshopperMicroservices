@@ -58,7 +58,8 @@ namespace IdentityServer
                     options.SetAccessTokenLifetime(TimeSpan.FromMinutes(30));
                     options.SetRefreshTokenLifetime(TimeSpan.FromDays(7));
                     // Register signing and encryption details
-                    
+                    options.AddDevelopmentEncryptionCertificate() // Change this on production, see here https://documentation.openiddict.com/configuration/encryption-and-signing-credentials.html
+                        .AddDevelopmentSigningCertificate();
                 });
         }
     }
