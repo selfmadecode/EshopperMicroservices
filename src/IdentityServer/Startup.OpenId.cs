@@ -56,6 +56,8 @@ namespace IdentityServer
 
                     // Set the lifetime of your tokens
                     options.SetAccessTokenLifetime(TimeSpan.FromMinutes(30));
+                    options.SetRefreshTokenLifetime(TimeSpan.FromDays(7));
+                    // Register signing and encryption details
                     
                 });
         }
