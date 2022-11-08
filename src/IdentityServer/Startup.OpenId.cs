@@ -36,6 +36,7 @@ namespace IdentityServer
                     options.SetTokenEndpointUris("/connect/token");
                     options.SetUserinfoEndpointUris("/connect/userinfo");
                     options.AllowPasswordFlow();
+                    options.AllowRefreshTokenFlow();
                     
                 });
         }
