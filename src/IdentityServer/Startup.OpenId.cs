@@ -54,6 +54,8 @@ namespace IdentityServer
                                     OpenIddictConstants.Permissions.Scopes.Address,
                                     OpenIddictConstants.Permissions.Scopes.Roles);
 
+                    // Set the lifetime of your tokens
+                    options.SetAccessTokenLifetime(TimeSpan.FromMinutes(30));
                     
                 });
         }
