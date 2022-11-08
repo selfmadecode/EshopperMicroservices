@@ -46,6 +46,14 @@ namespace IdentityServer
                     //      - Password flow
                     //      - Refresh token flow
 
+                    // Register your scopes - Scopes are a list of identifiers used to specify
+                    // what access privileges are requested.
+                    options.RegisterScopes(OpenIddictConstants.Permissions.Scopes.Email,
+                                    OpenIddictConstants.Permissions.Scopes.Profile,
+                                    OpenIddictConstants.Permissions.Scopes.Phone,
+                                    OpenIddictConstants.Permissions.Scopes.Address,
+                                    OpenIddictConstants.Permissions.Scopes.Roles);
+
                     
                 });
         }
