@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace IdentityServer.Controllers
 {
@@ -6,5 +7,10 @@ namespace IdentityServer.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
+        [AllowAnonymous]
+        [HttpPost("~/api/connect/token"), Produces("application/json")]
+        public async Task<IActionResult> Token([ModelBinder(BinderType = typeof(OpenIddictMvcBinder))] OpenIdConnectRequest request)
+        {
+        }
     }
 }
