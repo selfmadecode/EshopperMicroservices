@@ -22,7 +22,7 @@ namespace IdentityServer
 
         public void ConfigureServices(IServiceCollection services)
         {
-            // https://nwb.one/blog/openid-connect-dotnet-5
+            // https://nwb.one/blog/openid-connect-dotnet-5 // doc
             services.AddDbContext<ApplicationDbContext>(options =>
             {
                 // Configure Entity Framework Core to use Microsoft SQL Server.
