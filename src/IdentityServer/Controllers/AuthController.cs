@@ -14,7 +14,11 @@ namespace IdentityServer.Controllers
         {
             try
             {
+                // Password flow
+                if (request.IsPasswordGrantType())
+                { 
 
+                }
             }
             catch (System.Exception)
             {
