@@ -12,6 +12,15 @@ namespace IdentityServer.Controllers
         [HttpPost("~/api/connect/token"), Produces("application/json")]
         public async Task<IActionResult> Token([ModelBinder(BinderType = typeof(OpenIddictMvcBinder))] OpenIdConnectRequest request)
         {
+            try
+            {
+
+            }
+            catch (System.Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
