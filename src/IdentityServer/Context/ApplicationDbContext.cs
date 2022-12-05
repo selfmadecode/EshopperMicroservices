@@ -13,6 +13,7 @@ namespace IdentityServer.Context
 
         }
 
+        // config
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
